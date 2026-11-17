@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crônicas da Quimera - RPG 2D</title>
+  <!-- Liga o arquivo de estilos CSS ao HTML -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra superior com informações do jogador -->
+  <header id="painel-status" class="escondido">
+    <div class="status-item">❤️ Vida: <span id="texto-vida">100</span>/<span id="texto-vida-max">100</span></div>
+    <div class="status-item">🛡️ Classe: <span id="texto-classe">Cavaleiro</span></div>
+    <div class="status-item">⚡ Especial (G): <span id="texto-especial">Pronto!</span></div>
+    <div class="status-item">📍 Local: <span id="texto-local">Floresta</span></div>
+  </header>
+
+  <!-- Área principal do jogo -->
+  <main id="container-jogo">
+    <!-- Tela de Início -->
+    <section id="tela-inicio" class="tela-sobreposta">
+      <h1>⚔️ Crônicas da Quimera</h1>
+      <p>Atravesse a floresta, cure-se na vila e derrote a temível <strong>Quimera</strong>!</p>
+      
+      <div class="seletor-classe">
+        <p><strong>Escolha seu herói:</strong></p>
+        <button class="btn-classe selecionado" data-classe="cavaleiro">⚔️ Cavaleiro (Muita Vida)</button>
+        <button class="btn-classe" data-classe="arqueiro">🏹 Arqueiro (Rápido)</button>
+        <button class="btn-classe" data-classe="bruxo">🧙‍♂️ Bruxo (Dano Forte)</button>
+      </div>
+
+      <div class="instrucoes-box">
+        <p><strong>Controles (PC):</strong></p>
+        <p>⬆️⬇️⬅️➡️ <strong>Setas:</strong> Mover | 🖱️ <strong>Clique:</strong> Atacar</p>
+        <p>🔥 <strong>Tecla G:</strong> Golpe Especial | 🏘️ <strong>Tecla E:</strong> Descansar na Vila</p>
+      </div>
+
+      <button id="btn-iniciar" class="btn-principal">Começar Aventura</button>
+    </section>
+
+    <!-- Tela de Fim de Jogo (Vitória ou Derrota) -->
+    <section id="tela-fim" class="tela-sobreposta escondido">
+      <h1 id="titulo-fim">Fim de Jogo</h1>
+      <p id="mensagem-fim">Você foi derrotado na floresta.</p>
+      <button id="btn-reiniciar" class="btn-principal">Jogar Novamente</button>
+    </section>
+
+    <!-- Onde o jogo 2D é desenhado -->
+    <canvas id="tela-jogo" width="800" height="500"></canvas>
+  </main>
+
+  <!-- Controles extras para celular (aparecem em telas pequenas) -->
+  <div id="controles-mobile" class="escondido">
+    <div class="direcionais">
+      <button id="mob-cima">⬆️</button>
+      <div>
+        <button id="mob-esq">⬅️</button>
+        <button id="mob-baixo">⬇️</button>
+        <button id="mob-dir">➡️</button>
+      </div>
+    </div>
+    <div class="acoes-mobile">
+      <button id="mob-atacar">⚔️ Atacar</button>
+      <button id="mob-especial">🔥 Especial (G)</button>
+      <button id="mob-interagir">🏘️ Vila (E)</button>
+    </div>
+  </div>
+
+  <!-- Liga o arquivo de programação JavaScript ao HTML -->
+  <script src="script.js"></script>
+</body>
+</html>
