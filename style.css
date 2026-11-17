@@ -1,0 +1,169 @@
+/* Definindo as 3 cores principais do jogo */
+:root {
+  --verde-floresta: #1e4620;
+  --cinza-fosco: #3a3f44;
+  --azul-agua: #2b7a9e;
+  --texto-claro: #f4f4f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace; /* Estilo retrô */
+}
+
+body {
+  background-color: var(--cinza-fosco);
+  color: var(--texto-claro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+/* Painel superior de vida e status */
+#painel-status {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--verde-floresta);
+  border: 3px solid var(--azul-agua);
+  border-bottom: none;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-weight: bold;
+}
+
+/* Caixa que segura o canvas e as telas de menu */
+#container-jogo {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  border: 4px solid var(--azul-agua);
+  background-color: var(--verde-floresta);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: crosshair; /* Mira do mouse para atacar */
+}
+
+/* Telas de Início e Game Over */
+.tela-sobreposta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(58, 63, 68, 0.95); /* Cinza fosco translúcido */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  gap: 15px;
+  z-index: 10;
+}
+
+.tela-sobreposta h1 {
+  color: var(--azul-agua);
+  font-size: 2rem;
+  text-shadow: 2px 2px #000;
+}
+
+.seletor-classe {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-classe {
+  background-color: var(--cinza-fosco);
+  color: var(--texto-claro);
+  border: 2px solid var(--azul-agua);
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-classe.selecionado {
+  background-color: var(--azul-agua);
+  color: #fff;
+}
+
+.instrucoes-box {
+  background-color: var(--verde-floresta);
+  border: 2px solid var(--azul-agua);
+  padding: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.btn-principal {
+  background-color: var(--azul-agua);
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.btn-principal:hover {
+  transform: scale(1.05);
+}
+
+/* Classe utilitária para esconder elementos */
+.escondido {
+  display: none !important;
+}
+
+/* Controles para celular */
+#controles-mobile {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#controles-mobile button {
+  background-color: var(--azul-agua);
+  color: white;
+  border: 2px solid var(--texto-claro);
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.direcionais {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.acoes-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Esconde botões mobile em telas grandes de PC */
+@media (min-width: 820px) {
+  #controles-mobile {
+    display: none;
+  }
+}
